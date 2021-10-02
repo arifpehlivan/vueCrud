@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
-//import router from './router/router'
+import router from './router/router.js'
 
 const app = express()
 app.use(cors())
@@ -10,7 +10,7 @@ app.use(express.json())
 
 dotenv.config()
 
-//app.use('/posts', router)
+app.use('/posts', router)
 app.listen(process.env.PORT, ()=>{
     mongoose.connect(process.env.mongo_url, {
         useNewUrlParser: true,
